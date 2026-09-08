@@ -29,20 +29,32 @@ estimateForm.addEventListener("submit", async (event) => {
   status.textContent = "";
 
   try {
+    const formData = new FormData(estimateForm);
+    const payload = Object.fromEntries(formData.entries());
     const response = await fetch(estimateForm.action, {
       method: "POST",
-      body: new FormData(estimateForm),
-      headers: { Accept: "application/json" },
+      body: JSON.stringify(payload),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
     });
 
-    if (!response.ok) throw new Error("Request could not be sent");
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok || result.success === false || result.success === "false") {
+      throw new Error(result.message || "Request could not be sent");
+    }
 
     estimateForm.reset();
     status.classList.add("form-status--success");
     status.textContent = "Done — your request has been sent.";
   } catch (error) {
     status.classList.add("form-status--error");
-    status.innerHTML = 'Unable to send right now. Please <a href="mailto:sharkelectricoffice@gmail.com">email us directly</a>.';
+    status.textContent = "Unable to send right now. ";
+    const emailLink = document.createElement("a");
+    emailLink.href = "mailto:sharkelectricoffice@gmail.com";
+    emailLink.textContent = "Email us directly.";
+    status.append(emailLink);
   } finally {
     submitButton.disabled = false;
     submitButton.textContent = "Send Request";
