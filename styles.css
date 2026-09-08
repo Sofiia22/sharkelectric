@@ -1,0 +1,219 @@
+:root {
+  color-scheme: dark;
+  --ink: #02111d;
+  --panel: rgba(3, 20, 33, 0.88);
+  --blue: #159dff;
+  --gold: #ffd432;
+  --white: #f8fbff;
+}
+
+* { box-sizing: border-box; }
+
+html { min-width: 320px; background: var(--ink); }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  color: var(--white);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at 48% 8%, rgba(7, 87, 139, 0.28), transparent 30rem),
+    radial-gradient(circle at 8% 65%, rgba(255, 205, 29, 0.08), transparent 22rem),
+    linear-gradient(145deg, #020d17 0%, #062035 46%, #010b13 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  background-image:
+    linear-gradient(120deg, transparent 0 48%, rgba(19, 150, 255, 0.3) 49% 49.2%, transparent 50%),
+    linear-gradient(35deg, transparent 0 76%, rgba(255, 210, 41, 0.25) 77% 77.2%, transparent 78%);
+  background-size: 530px 430px, 690px 580px;
+}
+
+.page-shell {
+  position: relative;
+  width: min(100% - 40px, 1320px);
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: clamp(18px, 3vw, 42px) 0 30px;
+}
+
+.brand {
+  position: relative;
+  width: min(100%, 760px);
+  height: clamp(230px, 23vw, 300px);
+  margin: 0 auto clamp(18px, 2.2vw, 30px);
+  overflow: hidden;
+  border-radius: 28px;
+  isolation: isolate;
+  filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.38));
+}
+
+.brand::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 24%;
+  background: linear-gradient(transparent, var(--ink));
+  z-index: 1;
+}
+
+.brand img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: translateY(-1.5%);
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 2vw, 28px);
+}
+
+.action-card {
+  position: relative;
+  display: flex;
+  min-height: 220px;
+  padding: 24px 22px 22px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  overflow: hidden;
+  border: 3px solid var(--accent);
+  border-radius: 25px;
+  color: var(--white);
+  text-align: center;
+  text-decoration: none;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.065), transparent 40%),
+    var(--panel);
+  box-shadow: 0 12px 24px rgba(0,0,0,.36), inset 0 0 23px rgba(255,255,255,.025), 0 0 12px color-mix(in srgb, var(--accent) 32%, transparent);
+  transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.action-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 0, color-mix(in srgb, var(--accent) 12%, transparent), transparent 56%);
+}
+
+.action-card--blue { --accent: var(--blue); }
+.action-card--gold { --accent: var(--gold); }
+
+.action-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(0,0,0,.45), 0 0 19px color-mix(in srgb, var(--accent) 44%, transparent);
+}
+
+.action-card:active { transform: translateY(0) scale(.99); }
+
+.action-card:focus-visible {
+  outline: 4px solid var(--white);
+  outline-offset: 5px;
+}
+
+.icon-ring {
+  position: relative;
+  display: grid;
+  width: 90px;
+  height: 90px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 6px solid var(--gold);
+  border-radius: 50%;
+  color: var(--gold);
+  filter: drop-shadow(0 0 7px rgba(255, 204, 31, 0.25));
+}
+
+.icon-ring svg { width: 60%; height: 60%; fill: currentColor; stroke: currentColor; stroke-width: 4; stroke-linejoin: round; }
+.icon-ring svg rect, .icon-ring .outline-icon path { fill: none; }
+.icon-ring svg text { font: 800 23px Arial, sans-serif; fill: currentColor; stroke: none; text-anchor: middle; }
+
+.facebook-ring b {
+  display: grid;
+  width: 72px;
+  height: 72px;
+  place-items: end center;
+  overflow: hidden;
+  border-radius: 50%;
+  color: white;
+  font: 900 72px/0.96 Arial, sans-serif;
+  background: linear-gradient(#168cff, #0866ff);
+}
+
+.card-copy { position: relative; display: grid; gap: 8px; place-items: center; }
+
+.card-copy strong {
+  font-size: clamp(23px, 2vw, 32px);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  text-shadow: 0 3px 3px rgba(0,0,0,.65);
+}
+
+.card-subline, .phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: clamp(18px, 1.5vw, 23px);
+  line-height: 1.15;
+  color: #e7ecf4;
+}
+
+.phone { font-size: clamp(27px, 2.1vw, 35px); color: var(--white); }
+.plus { color: #b8c2ce; }
+.google-mark { font: 900 30px/1 Arial, sans-serif; color: #4285f4; text-shadow: -2px 2px 0 #34a853, 2px 2px 0 #fbbc05, 2px -2px 0 #ea4335; }
+.yelp-mark { color: #ef2b2d; font-size: 35px; line-height: .6; }
+.gmail-mark { color: #ef4335; font: 900 27px/1 Arial, sans-serif; text-shadow: -5px 0 #4285f4, 5px 0 #fbbc05; }
+.mini-icon { width: 31px; height: 31px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+
+.footer-bolt {
+  margin: 12px auto 0;
+  color: var(--gold);
+  text-align: center;
+  font: 900 68px/.8 Arial, sans-serif;
+  text-shadow: 0 0 18px rgba(255, 210, 42, .55);
+}
+
+@media (max-width: 1023px) {
+  .page-shell { width: min(100% - 36px, 900px); padding-top: 18px; }
+  .brand { width: min(100%, 650px); height: clamp(245px, 40vw, 330px); margin-bottom: 18px; }
+  .actions { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  .action-card { min-height: 235px; padding: 20px; }
+  .icon-ring { width: 96px; height: 96px; }
+}
+
+@media (max-width: 767px) {
+  .page-shell { width: 100%; padding: 0 16px 24px; }
+  .brand { width: calc(100% + 32px); height: clamp(220px, 55vw, 290px); margin-left: -16px; margin-bottom: 14px; border-radius: 0; }
+  .brand img { transform: translateY(0); }
+  .actions { grid-template-columns: 1fr; gap: 16px; }
+  .action-card { min-height: 230px; border-radius: 22px; }
+  .icon-ring { width: 94px; height: 94px; }
+  .card-copy strong { font-size: clamp(26px, 8vw, 34px); }
+  .card-subline { font-size: clamp(19px, 5.6vw, 24px); }
+  .phone { font-size: clamp(29px, 8vw, 36px); }
+}
+
+@media (max-width: 359px) {
+  .page-shell { padding-inline: 14px; }
+  .brand { width: calc(100% + 28px); margin-left: -14px; height: 205px; }
+  .action-card { min-height: 218px; padding-inline: 12px; }
+  .card-copy strong { font-size: 26px; }
+  .card-subline { gap: 7px; font-size: 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .action-card { transition: none; }
+}
