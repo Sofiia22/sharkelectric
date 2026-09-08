@@ -180,6 +180,20 @@ body::before {
 .icon-ring svg rect, .icon-ring .outline-icon path { fill: none; }
 .icon-ring svg text { font: 800 23px Arial, sans-serif; fill: currentColor; stroke: none; text-anchor: middle; }
 
+.five-stars {
+  display: inline-flex;
+  color: var(--gold);
+  letter-spacing: .08em;
+  text-shadow: 0 0 9px rgba(255, 212, 50, .52);
+}
+
+.five-stars--card {
+  width: 66px;
+  justify-content: center;
+  font-size: 14px;
+  letter-spacing: -1px;
+}
+
 .facebook-ring b {
   display: grid;
   width: 72px;
