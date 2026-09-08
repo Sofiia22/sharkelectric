@@ -239,7 +239,12 @@ body::before {
   border-radius: 25px;
   color: var(--white);
   background: transparent;
-  overflow: visible;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--blue) transparent;
 }
 
 .modal::backdrop {
@@ -347,8 +352,24 @@ body::before {
   .card-copy strong { font-size: clamp(26px, 8vw, 34px); }
   .card-subline { font-size: clamp(19px, 5.6vw, 24px); }
   .phone { font-size: clamp(29px, 8vw, 36px); }
-  .modal-panel { padding: 30px 20px 24px; }
-  .decor--lamp { left: -20px; opacity: .42; }
+  .modal {
+    width: calc(100% - 16px);
+    max-height: calc(100dvh - 16px);
+    margin: auto;
+  }
+  .modal-panel { padding: 24px 18px 18px; }
+  .modal-symbol { font-size: 44px; }
+  .modal h2 { margin-top: 3px; }
+  .modal-panel > p { margin-bottom: 17px; font-size: 15px; }
+  #estimate-form { gap: 12px; }
+  #estimate-form textarea { min-height: 86px; }
+  .decor--lamp {
+    top: -18px;
+    left: -12px;
+    width: 58px;
+    height: 150px;
+    opacity: .34;
+  }
   .decor--home { right: -42px; top: 75px; opacity: .38; }
 }
 
