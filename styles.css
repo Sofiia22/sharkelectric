@@ -36,6 +36,49 @@ body::before {
   background-size: 530px 430px, 690px 580px;
 }
 
+.decor {
+  position: fixed;
+  z-index: 0;
+  pointer-events: none;
+  filter: drop-shadow(0 0 12px currentColor);
+}
+
+.decor svg { display: block; width: 100%; height: 100%; overflow: visible; }
+
+.decor--lamp {
+  top: -6px;
+  left: clamp(8px, 4vw, 70px);
+  width: clamp(82px, 10vw, 145px);
+  height: clamp(205px, 26vw, 360px);
+  color: var(--gold);
+  opacity: .88;
+}
+
+.decor-wire, .lamp-glass, .lamp-filament, .home-line, .plug-line {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.decor-wire { stroke: #101820; stroke-width: 8; }
+.lamp-cap { fill: #101820; stroke: #3e4a52; stroke-width: 2; }
+.lamp-glass { fill: rgba(255, 194, 30, .1); stroke-width: 3; }
+.lamp-filament { stroke-width: 4; }
+
+.decor--home {
+  top: 28px;
+  right: clamp(8px, 3vw, 55px);
+  width: clamp(135px, 17vw, 245px);
+  height: clamp(165px, 20vw, 290px);
+  color: var(--blue);
+  opacity: .73;
+}
+
+.home-line, .plug-line { stroke-width: 6; }
+
+.page-shell { z-index: 1; }
+
 .page-shell {
   position: relative;
   width: min(100% - 40px, 1320px);
@@ -173,7 +216,12 @@ body::before {
 .google-mark { font: 900 30px/1 Arial, sans-serif; color: #4285f4; text-shadow: -2px 2px 0 #34a853, 2px 2px 0 #fbbc05, 2px -2px 0 #ea4335; }
 .yelp-mark { color: #ef2b2d; font-size: 35px; line-height: .6; }
 .gmail-mark { color: #ef4335; font: 900 27px/1 Arial, sans-serif; text-shadow: -5px 0 #4285f4, 5px 0 #fbbc05; }
+.brand-icon { width: 32px; height: 32px; flex: 0 0 auto; }
+.brand-icon--gmail { width: 35px; height: 35px; }
 .mini-icon { width: 31px; height: 31px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+.phone-electric-icon { width: 72% !important; height: 72% !important; overflow: visible; }
+.phone-electric-icon .phone-outline { fill: none; stroke: currentColor; stroke-width: 5; }
+.phone-electric-icon .electric-bolt { fill: var(--blue); stroke: #dff4ff; stroke-width: 1.5; }
 
 .footer-bolt {
   margin: 12px auto 0;
@@ -300,6 +348,8 @@ body::before {
   .card-subline { font-size: clamp(19px, 5.6vw, 24px); }
   .phone { font-size: clamp(29px, 8vw, 36px); }
   .modal-panel { padding: 30px 20px 24px; }
+  .decor--lamp { left: -20px; opacity: .42; }
+  .decor--home { right: -42px; top: 75px; opacity: .38; }
 }
 
 @media (max-width: 359px) {

@@ -13,6 +13,23 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="decor decor--lamp" aria-hidden="true">
+      <svg viewBox="0 0 150 360">
+        <path class="decor-wire" d="M75 0v76" />
+        <path class="lamp-cap" d="M52 76h46v22c0 7-5 12-12 12H64c-7 0-12-5-12-12V76Z" />
+        <path class="lamp-glass" d="M60 108c-26 16-37 67-23 101 7 18 20 29 38 29s31-11 38-29c14-34 3-85-23-101H60Z" />
+        <path class="lamp-filament" d="M61 193c10-14 6-50 14-50s4 36 14 50M60 194h30M64 207h22" />
+      </svg>
+    </div>
+
+    <div class="decor decor--home" aria-hidden="true">
+      <svg viewBox="0 0 260 300">
+        <path class="home-line" d="m18 125 111-104 44 42V39h29v51l40 37h-27v123h-62" />
+        <path class="home-line" d="M102 250H45V127H18" />
+        <path class="plug-line" d="M118 161v34c0 22 16 39 36 39s36-17 36-39v-34M110 161h89M132 161v-38M178 161v-38M154 234v45" />
+      </svg>
+    </div>
+
     <main class="page-shell">
       <header class="brand">
         <img
@@ -37,7 +54,7 @@
           </span>
           <span class="card-copy">
             <strong>Leave a Review</strong>
-            <span class="card-subline"><b class="google-mark">G</b> Google <span class="plus">+</span> <b class="yelp-mark">✦</b> Yelp</span>
+            <span class="card-subline"><img class="brand-icon" src="assets/google.svg" alt="" /> Google <span class="plus">+</span> <b class="yelp-mark">✦</b> Yelp</span>
           </span>
         </button>
 
@@ -67,7 +84,7 @@
           </span>
           <span class="card-copy">
             <strong>Ask a Question</strong>
-            <span class="card-subline"><b class="gmail-mark">M</b> Email us</span>
+            <span class="card-subline"><img class="brand-icon brand-icon--gmail" src="assets/gmail.svg" alt="" /> Email us</span>
           </span>
         </a>
 
@@ -83,13 +100,16 @@
           </span>
           <span class="card-copy">
             <strong>Request an Estimate</strong>
-            <span class="card-subline"><b class="gmail-mark">M</b> Email us</span>
+            <span class="card-subline"><img class="brand-icon brand-icon--gmail" src="assets/gmail.svg" alt="" /> Email us</span>
           </span>
         </button>
 
         <a class="action-card action-card--blue" href="tel:+19413301299" aria-label="Call Shark Electric at +1 941-330-1299">
           <span class="icon-ring" aria-hidden="true">
-            <svg viewBox="0 0 64 64"><path d="M18 8c3-2 8 9 9 13 1 3-5 5-5 8 1 7 7 13 14 14 3 0 5-6 8-5 4 1 15 6 13 9-3 6-9 10-16 9C23 54 10 41 8 23 7 17 12 11 18 8Z" /></svg>
+            <svg class="phone-electric-icon" viewBox="0 0 64 64">
+              <path class="phone-outline" d="M17 8c3-2 9 10 10 14 1 3-6 6-5 9 2 7 6 11 13 13 3 1 6-6 9-5 4 1 16 7 14 10-3 6-9 9-16 8C23 54 10 41 7 22 6 16 11 10 17 8Z" />
+              <path class="electric-bolt" d="m48 5-9 16h7l-3 12 12-18h-7V5Z" />
+            </svg>
           </span>
           <span class="card-copy">
             <strong>Call Us</strong>
@@ -120,7 +140,7 @@
         <p>Choose where you would like to share your experience.</p>
         <div class="review-options">
           <a class="review-link google-link" href="https://share.google/yIzrLAbKf4ZCT8twC" target="_blank" rel="noopener noreferrer">
-            <b class="google-mark" aria-hidden="true">G</b>
+            <img class="brand-icon" src="assets/google.svg" alt="" />
             Review on Google
           </a>
           <a class="review-link yelp-link" href="https://www.yelp.com/search?find_desc=Shark%20Electric&amp;find_loc=Sarasota%2C%20FL" target="_blank" rel="noopener noreferrer">
