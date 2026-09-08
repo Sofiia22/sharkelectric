@@ -224,11 +224,16 @@ body::before {
 .phone-electric-icon .electric-bolt { fill: var(--blue); stroke: #dff4ff; stroke-width: 1.5; }
 
 .footer-bolt {
-  margin: 12px auto 0;
-  color: var(--gold);
-  text-align: center;
-  font: 900 68px/.8 Arial, sans-serif;
-  text-shadow: 0 0 18px rgba(255, 210, 42, .55);
+  display: flex;
+  margin: 18px auto 0;
+  justify-content: center;
+}
+
+.footer-bolt .icon-ring {
+  width: 78px;
+  height: 78px;
+  border-width: 5px;
+  box-shadow: 0 0 18px rgba(255, 210, 42, .35);
 }
 
 .modal {
@@ -371,6 +376,7 @@ body::before {
     opacity: .34;
   }
   .decor--home { right: -42px; top: 75px; opacity: .38; }
+  .footer-bolt .icon-ring { width: 70px; height: 70px; }
 }
 
 @media (max-width: 359px) {
