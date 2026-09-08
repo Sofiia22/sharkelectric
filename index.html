@@ -9,27 +9,28 @@
       content="Shark Electric — licensed electrical services in Sarasota, Florida. Call, email, request an estimate, or view our services."
     />
     <title>Shark Electric | Sarasota, FL</title>
-    <link rel="preload" href="assets/shark-electric-reference.png" as="image" />
+    <link rel="preload" href="assets/shark-electric-logo.png" as="image" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main class="page-shell">
-      <header class="brand" aria-label="Shark Electric, license EC13006923">
+      <header class="brand">
         <img
-          src="assets/shark-electric-reference.png"
-          alt="Shark Electric — License EC13006923"
-          width="1024"
-          height="1536"
+          src="assets/shark-electric-logo.png"
+          alt="Shark Electric Inc."
+          width="1774"
+          height="887"
         />
+        <p>Licence # EC13006923</p>
       </header>
 
       <section class="actions" aria-label="Contact Shark Electric">
-        <a
+        <button
+          type="button"
           class="action-card action-card--blue"
-          href="https://share.google/yIzrLAbKf4ZCT8twC"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Leave Shark Electric a Google review"
+          data-open-dialog="review-dialog"
+          aria-haspopup="dialog"
+          aria-label="Choose Google or Yelp to leave Shark Electric a review"
         >
           <span class="icon-ring" aria-hidden="true">
             <svg viewBox="0 0 64 64"><path d="m32 7 7.7 15.6L57 25.1 44.5 37.3l3 17.2L32 46.4l-15.5 8.1 3-17.2L7 25.1l17.3-2.5L32 7Z" /></svg>
@@ -38,7 +39,7 @@
             <strong>Leave a Review</strong>
             <span class="card-subline"><b class="google-mark">G</b> Google <span class="plus">+</span> <b class="yelp-mark">✦</b> Yelp</span>
           </span>
-        </a>
+        </button>
 
         <a
           class="action-card action-card--gold"
@@ -58,7 +59,7 @@
 
         <a
           class="action-card action-card--gold"
-          href="mailto:sharkelectric1@gmail.com?subject=Question%20for%20Shark%20Electric"
+          href="mailto:sharkelectricoffice@gmail.com?subject=Question%20for%20Shark%20Electric"
           aria-label="Email Shark Electric with a question"
         >
           <span class="icon-ring" aria-hidden="true">
@@ -70,9 +71,11 @@
           </span>
         </a>
 
-        <a
+        <button
+          type="button"
           class="action-card action-card--blue"
-          href="mailto:sharkelectric1@gmail.com?subject=Request%20an%20Estimate&amp;body=Please%20tell%20us%20about%20your%20project%3A%0A%0A"
+          data-open-dialog="estimate-dialog"
+          aria-haspopup="dialog"
           aria-label="Request an estimate from Shark Electric by email"
         >
           <span class="icon-ring" aria-hidden="true">
@@ -82,15 +85,15 @@
             <strong>Request an Estimate</strong>
             <span class="card-subline"><b class="gmail-mark">M</b> Email us</span>
           </span>
-        </a>
+        </button>
 
-        <a class="action-card action-card--blue" href="tel:+19413301299" aria-label="Call Shark Electric at 941-330-1299">
+        <a class="action-card action-card--blue" href="tel:+19413301299" aria-label="Call Shark Electric at +1 941-330-1299">
           <span class="icon-ring" aria-hidden="true">
             <svg viewBox="0 0 64 64"><path d="M18 8c3-2 8 9 9 13 1 3-5 5-5 8 1 7 7 13 14 14 3 0 5-6 8-5 4 1 15 6 13 9-3 6-9 10-16 9C23 54 10 41 8 23 7 17 12 11 18 8Z" /></svg>
           </span>
           <span class="card-copy">
             <strong>Call Us</strong>
-            <span class="phone">941-330-1299</span>
+            <span class="phone">+1 941-330-1299</span>
           </span>
         </a>
 
@@ -108,5 +111,53 @@
 
       <div class="footer-bolt" aria-hidden="true">ϟ</div>
     </main>
+
+    <dialog class="modal" id="review-dialog" aria-labelledby="review-title">
+      <div class="modal-panel">
+        <button class="modal-close" type="button" data-close-dialog aria-label="Close review options">×</button>
+        <span class="modal-symbol" aria-hidden="true">★</span>
+        <h2 id="review-title">Leave a Review</h2>
+        <p>Choose where you would like to share your experience.</p>
+        <div class="review-options">
+          <a class="review-link google-link" href="https://share.google/yIzrLAbKf4ZCT8twC" target="_blank" rel="noopener noreferrer">
+            <b class="google-mark" aria-hidden="true">G</b>
+            Review on Google
+          </a>
+          <a class="review-link yelp-link" href="https://www.yelp.com/search?find_desc=Shark%20Electric&amp;find_loc=Sarasota%2C%20FL" target="_blank" rel="noopener noreferrer">
+            <b class="yelp-mark" aria-hidden="true">✦</b>
+            Find us on Yelp
+          </a>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="modal" id="estimate-dialog" aria-labelledby="estimate-title">
+      <div class="modal-panel">
+        <button class="modal-close" type="button" data-close-dialog aria-label="Close estimate form">×</button>
+        <span class="modal-symbol" aria-hidden="true">ϟ</span>
+        <h2 id="estimate-title">Request an Estimate</h2>
+        <p>Tell us a little about your project. We’ll get back to you soon.</p>
+        <form id="estimate-form" action="https://formsubmit.co/ajax/sharkelectricoffice@gmail.com" method="post">
+          <input type="hidden" name="_subject" value="New estimate request from Shark Electric website" />
+          <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <label>
+            Name
+            <input type="text" name="name" autocomplete="name" required />
+          </label>
+          <label>
+            Phone number
+            <input type="tel" name="phone" autocomplete="tel" inputmode="tel" required />
+          </label>
+          <label>
+            Leave a message
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <button class="submit-button" type="submit">Send Request</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </dialog>
+
+    <script src="script.js"></script>
   </body>
 </html>
