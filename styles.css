@@ -46,28 +46,31 @@ body::before {
 .decor svg { display: block; width: 100%; height: 100%; overflow: visible; }
 
 .decor--lamp {
-  top: -6px;
-  left: clamp(8px, 4vw, 70px);
-  width: clamp(82px, 10vw, 145px);
-  height: clamp(205px, 26vw, 360px);
-  color: var(--gold);
-  opacity: .88;
+  top: 0;
+  left: clamp(0px, 2.5vw, 42px);
+  width: 166px;
+  height: 350px;
+  overflow: hidden;
+  opacity: .95;
+  filter: drop-shadow(0 0 12px rgba(255, 179, 0, .38));
+  -webkit-mask-image: radial-gradient(ellipse 95% 75% at 40% 42%, #000 58%, transparent 100%);
+  mask-image: radial-gradient(ellipse 95% 75% at 40% 42%, #000 58%, transparent 100%);
 }
 
-.decor-wire, .lamp-glass, .lamp-filament, .lamp-highlight, .home-line, .plug-line {
+.decor--lamp img {
+  display: block;
+  width: 1024px;
+  max-width: none;
+  height: 1536px;
+  transform: translate(-1px, 0);
+}
+
+.home-line, .plug-line {
   fill: none;
   stroke: currentColor;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-
-.decor-wire { stroke: #11181d; stroke-width: 9; }
-.lamp-cap { stroke: #65737d; stroke-width: 1.4; }
-.lamp-neck { fill: #080d10; stroke: #65737d; stroke-width: 1.5; }
-.lamp-aura { fill: rgba(255, 188, 18, .28); }
-.lamp-glass { fill: url(#glass); stroke: #f7bd38; stroke-width: 2.5; }
-.lamp-filament { stroke: #fff2a1; stroke-width: 3.4; filter: drop-shadow(0 0 5px #ffb300); }
-.lamp-highlight { stroke: rgba(255,255,255,.56); stroke-width: 2.2; }
 
 .decor--home {
   top: 28px;
@@ -408,11 +411,15 @@ body::before {
   #estimate-form { gap: 12px; }
   #estimate-form textarea { min-height: 86px; }
   .decor--lamp {
-    top: -18px;
-    left: -12px;
-    width: 58px;
-    height: 150px;
-    opacity: .34;
+    top: 0;
+    left: -3px;
+    width: 70px;
+    height: 148px;
+    opacity: .55;
+  }
+  .decor--lamp img {
+    transform: translate(0, 0) scale(.423);
+    transform-origin: top left;
   }
   .decor--home { right: -42px; top: 75px; opacity: .38; }
   .footer-bolt .icon-ring { width: 70px; height: 70px; }
