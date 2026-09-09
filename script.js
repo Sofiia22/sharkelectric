@@ -17,6 +17,8 @@ dialogs.forEach((dialog) => {
 });
 
 const estimateForm = document.getElementById("estimate-form");
+const estimateDialog = document.getElementById("estimate-dialog");
+const estimateBulb = estimateDialog.querySelector(".estimate-bulb");
 
 estimateForm.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -46,8 +48,15 @@ estimateForm.addEventListener("submit", async (event) => {
     }
 
     estimateForm.reset();
+    estimateBulb.classList.add("is-lit");
     status.classList.add("form-status--success");
     status.textContent = "Done — your request has been sent.";
+    window.setTimeout(() => {
+      estimateDialog.close();
+      estimateBulb.classList.remove("is-lit");
+      status.className = "form-status";
+      status.textContent = "";
+    }, 1600);
   } catch (error) {
     status.classList.add("form-status--error");
     status.textContent = "Unable to send right now. ";

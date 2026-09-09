@@ -54,17 +54,20 @@ body::before {
   opacity: .88;
 }
 
-.decor-wire, .lamp-glass, .lamp-filament, .home-line, .plug-line {
+.decor-wire, .lamp-glass, .lamp-filament, .lamp-highlight, .home-line, .plug-line {
   fill: none;
   stroke: currentColor;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
-.decor-wire { stroke: #101820; stroke-width: 8; }
-.lamp-cap { fill: #101820; stroke: #3e4a52; stroke-width: 2; }
-.lamp-glass { fill: rgba(255, 194, 30, .1); stroke-width: 3; }
-.lamp-filament { stroke-width: 4; }
+.decor-wire { stroke: #11181d; stroke-width: 9; }
+.lamp-cap { stroke: #65737d; stroke-width: 1.4; }
+.lamp-neck { fill: #080d10; stroke: #65737d; stroke-width: 1.5; }
+.lamp-aura { fill: rgba(255, 188, 18, .28); }
+.lamp-glass { fill: url(#glass); stroke: #f7bd38; stroke-width: 2.5; }
+.lamp-filament { stroke: #fff2a1; stroke-width: 3.4; filter: drop-shadow(0 0 5px #ffb300); }
+.lamp-highlight { stroke: rgba(255,255,255,.56); stroke-width: 2.2; }
 
 .decor--home {
   top: 28px;
@@ -300,6 +303,27 @@ body::before {
 
 .modal-close:hover { background: rgba(255,255,255,.1); }
 .modal-symbol { color: var(--gold); font-size: 58px; line-height: 1; }
+.estimate-bulb {
+  display: block;
+  width: 62px;
+  height: 80px;
+  margin: -4px auto 2px;
+  color: #ffd432;
+  transition: filter 320ms ease, transform 320ms ease;
+}
+
+.estimate-bulb svg { width: 100%; height: 100%; overflow: visible; }
+.estimate-bulb-glass { fill: rgba(255,212,50,.08); stroke: currentColor; stroke-width: 4; transition: fill 320ms ease; }
+.estimate-bulb-filament { fill: none; stroke: #947c24; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; transition: stroke 320ms ease; }
+.estimate-bulb-base { fill: #52606b; stroke: #dce5eb; stroke-width: 1.5; stroke-linejoin: round; }
+
+.estimate-bulb.is-lit {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 8px #fff4a3) drop-shadow(0 0 22px #ffb400) drop-shadow(0 0 42px rgba(255,180,0,.8));
+}
+
+.estimate-bulb.is-lit .estimate-bulb-glass { fill: #ffe36b; }
+.estimate-bulb.is-lit .estimate-bulb-filament { stroke: white; }
 .modal h2 { margin: 7px 0 8px; font-size: clamp(28px, 5vw, 38px); }
 .modal-panel > p { margin: 0 auto 24px; color: #cfd8e3; font-size: 17px; line-height: 1.5; }
 
@@ -378,6 +402,7 @@ body::before {
   }
   .modal-panel { padding: 24px 18px 18px; }
   .modal-symbol { font-size: 44px; }
+  .estimate-bulb { width: 50px; height: 66px; }
   .modal h2 { margin-top: 3px; }
   .modal-panel > p { margin-bottom: 17px; font-size: 15px; }
   #estimate-form { gap: 12px; }

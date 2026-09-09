@@ -16,10 +16,30 @@
   <body>
     <div class="decor decor--lamp" aria-hidden="true">
       <svg viewBox="0 0 150 360">
+        <defs>
+          <linearGradient id="metal" x1="0" x2="1">
+            <stop stop-color="#070b0e"/>
+            <stop offset=".35" stop-color="#53606a"/>
+            <stop offset=".55" stop-color="#11181d"/>
+            <stop offset="1" stop-color="#020405"/>
+          </linearGradient>
+          <radialGradient id="glass" cx="50%" cy="58%" r="54%">
+            <stop stop-color="#fff7bc" stop-opacity=".46"/>
+            <stop offset=".42" stop-color="#ffbf28" stop-opacity=".2"/>
+            <stop offset="1" stop-color="#ff9c00" stop-opacity=".03"/>
+          </radialGradient>
+          <filter id="bulb-glow" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur stdDeviation="9" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
         <path class="decor-wire" d="M75 0v76" />
-        <path class="lamp-cap" d="M52 76h46v22c0 7-5 12-12 12H64c-7 0-12-5-12-12V76Z" />
+        <path class="lamp-cap" fill="url(#metal)" d="M54 70h42v11H54zM49 81h52v10H49zM52 91h46v17H52z" />
+        <path class="lamp-neck" d="M61 108h28l4 13H57l4-13Z" />
+        <ellipse class="lamp-aura" cx="75" cy="181" rx="55" ry="75" filter="url(#bulb-glow)" />
         <path class="lamp-glass" d="M60 108c-26 16-37 67-23 101 7 18 20 29 38 29s31-11 38-29c14-34 3-85-23-101H60Z" />
-        <path class="lamp-filament" d="M61 193c10-14 6-50 14-50s4 36 14 50M60 194h30M64 207h22" />
+        <path class="lamp-filament" d="M58 172c11 9 11 35 17 35s6-26 17-35M66 178h18M62 207h26M65 218h20" />
+        <path class="lamp-highlight" d="M53 130c-12 15-17 37-16 55" />
       </svg>
     </div>
 
@@ -59,6 +79,22 @@
           </span>
         </button>
 
+        <button
+          type="button"
+          class="action-card action-card--blue"
+          data-open-dialog="estimate-dialog"
+          aria-haspopup="dialog"
+          aria-label="Request an estimate from Shark Electric by email"
+        >
+          <span class="icon-ring" aria-hidden="true">
+            <svg class="outline-icon" viewBox="0 0 64 64"><path d="M18 8h22l8 8v40H18V8Z"/><path d="M40 8v10h10M25 28h16M25 36h10"/><text x="32" y="51">$</text></svg>
+          </span>
+          <span class="card-copy">
+            <strong>Request an Estimate</strong>
+            <span class="card-subline"><img class="brand-icon brand-icon--gmail" src="assets/gmail.svg" alt="" /> Email us</span>
+          </span>
+        </button>
+
         <a
           class="action-card action-card--gold"
           href="https://www.sharkelectricfl.com/"
@@ -88,22 +124,6 @@
             <span class="card-subline"><img class="brand-icon brand-icon--gmail" src="assets/gmail.svg" alt="" /> Email us</span>
           </span>
         </a>
-
-        <button
-          type="button"
-          class="action-card action-card--blue"
-          data-open-dialog="estimate-dialog"
-          aria-haspopup="dialog"
-          aria-label="Request an estimate from Shark Electric by email"
-        >
-          <span class="icon-ring" aria-hidden="true">
-            <svg class="outline-icon" viewBox="0 0 64 64"><path d="M18 8h22l8 8v40H18V8Z"/><path d="M40 8v10h10M25 28h16M25 36h10"/><text x="32" y="51">$</text></svg>
-          </span>
-          <span class="card-copy">
-            <strong>Request an Estimate</strong>
-            <span class="card-subline"><img class="brand-icon brand-icon--gmail" src="assets/gmail.svg" alt="" /> Email us</span>
-          </span>
-        </button>
 
         <a class="action-card action-card--blue" href="tel:+19413301299" aria-label="Call Shark Electric at +1 941-330-1299">
           <span class="icon-ring" aria-hidden="true">
@@ -159,7 +179,13 @@
     <dialog class="modal" id="estimate-dialog" aria-labelledby="estimate-title">
       <div class="modal-panel">
         <button class="modal-close" type="button" data-close-dialog aria-label="Close estimate form">×</button>
-        <span class="modal-symbol" aria-hidden="true">ϟ</span>
+        <span class="estimate-bulb" aria-hidden="true">
+          <svg viewBox="0 0 80 104">
+            <path class="estimate-bulb-glass" d="M40 5C20 5 7 19 7 38c0 13 6 21 14 29 4 4 6 9 7 14h24c1-5 3-10 7-14 8-8 14-16 14-29C73 19 60 5 40 5Z" />
+            <path class="estimate-bulb-filament" d="m28 48 7 10 5-12 5 12 7-10M35 58v23M45 58v23" />
+            <path class="estimate-bulb-base" d="M28 82h24v7H28zM30 91h20v6H30zM35 99h10" />
+          </svg>
+        </span>
         <h2 id="estimate-title">Request an Estimate</h2>
         <p>Tell us a little about your project. We’ll get back to you soon.</p>
         <form id="estimate-form" action="https://formsubmit.co/ajax/sharkelectricoffice@gmail.com" method="post">
