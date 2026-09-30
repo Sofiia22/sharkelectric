@@ -392,6 +392,14 @@ body::before {
 @media (max-width: 767px) {
   .page-shell { width: 100%; padding: 0 16px 24px; }
   .brand { width: calc(100% + 16px); margin-left: -8px; margin-bottom: 20px; padding-top: 10px; }
+  .brand p {
+    position: relative;
+    z-index: 2;
+    font-size: clamp(14px, 3.9vw, 17px);
+    line-height: 1.25;
+    letter-spacing: .035em;
+    white-space: nowrap;
+  }
   .actions { grid-template-columns: 1fr; gap: 16px; }
   .action-card { min-height: 230px; border-radius: 22px; }
   .icon-ring { width: 94px; height: 94px; }
@@ -411,14 +419,14 @@ body::before {
   #estimate-form { gap: 12px; }
   #estimate-form textarea { min-height: 86px; }
   .decor--lamp {
-    top: 0;
-    left: -3px;
-    width: 70px;
-    height: 148px;
-    opacity: .55;
+    top: -4px;
+    left: -5px;
+    width: 52px;
+    height: 108px;
+    opacity: .48;
   }
   .decor--lamp img {
-    transform: translate(0, 0) scale(.423);
+    transform: translate(0, 0) scale(.31);
     transform-origin: top left;
   }
   .decor--home { right: -42px; top: 75px; opacity: .38; }
